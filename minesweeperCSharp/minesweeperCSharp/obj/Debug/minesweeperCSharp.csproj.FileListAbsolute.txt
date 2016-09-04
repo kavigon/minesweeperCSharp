@@ -1,0 +1,12 @@
+c:\users\sang hyun\documents\visual studio 2015\Projects\minesweeperCSharp\minesweeperCSharp\obj\Debug\minesweeperCSharp.Form1.resources
+c:\users\sang hyun\documents\visual studio 2015\Projects\minesweeperCSharp\minesweeperCSharp\obj\Debug\minesweeperCSharp.Properties.Resources.resources
+c:\users\sang hyun\documents\visual studio 2015\Projects\minesweeperCSharp\minesweeperCSharp\obj\Debug\minesweeperCSharp.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\minesweeperCSharp\minesweeperCSharp\minesweeperCSharp\bin\Debug\minesweeperCSharp.exe
+C:\Users\Administrator\Desktop\minesweeperCSharp\minesweeperCSharp\minesweeperCSharp\bin\Debug\minesweeperCSharp.pdb
+C:\Users\Administrator\Desktop\minesweeperCSharp\minesweeperCSharp\minesweeperCSharp\obj\Debug\minesweeperCSharp.Form1.resources
+C:\Users\Administrator\Desktop\minesweeperCSharp\minesweeperCSharp\minesweeperCSharp\obj\Debug\minesweeperCSharp.Properties.Resources.resources
+C:\Users\Administrator\Desktop\minesweeperCSharp\minesweeperCSharp\minesweeperCSharp\obj\Debug\minesweeperCSharp.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\minesweeperCSharp\minesweeperCSharp\minesweeperCSharp\obj\Debug\minesweeperCSharp.exe
+C:\Users\Administrator\Desktop\minesweeperCSharp\minesweeperCSharp\minesweeperCSharp\obj\Debug\minesweeperCSharp.pdb
+C:\Users\Sang Hyun\Documents\카카오톡 받은 파일\minesweeperCSharp_a\minesweeperCSharp\minesweeperCSharp\obj\Debug\minesweeperCSharp.exe
+C:\Users\Sang Hyun\Documents\카카오톡 받은 파일\minesweeperCSharp_a\minesweeperCSharp\minesweeperCSharp\obj\Debug\minesweeperCSharp.pdb
