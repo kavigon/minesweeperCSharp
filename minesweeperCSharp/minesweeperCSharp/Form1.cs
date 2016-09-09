@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -15,8 +16,9 @@ namespace minesweeperCSharp
         public Form1()
         {
             InitializeComponent();
+
         }
-        
+
         private static int rowNum = 10;
         private static int columNum = 10;
         private static int mineNum = 10;
@@ -27,17 +29,17 @@ namespace minesweeperCSharp
         private Button[,] btnArray = new Button[rowNum, columNum];
         private bool[,] mineArray = new bool[rowNum, columNum];
 
+        private Random generator = new System.Random(System.DateTime.Now.Millisecond);
 
         private void Form1_Load(object sender, EventArgs e)
         {
             // make 10*10 
             panelButton.Size = this.ClientSize;
-            for (int i = 0; i <= rowNum - 1; i++)
+            for (int i = 0; i < rowNum ; i++)
             {
-                for (int j = 0; (j <= (columNum - 1)); j++)
+                for (int j = 0; j <columNum ; j++)
                 {
                     btnArray[i, j] = new Button();
-                    //  btnArray[i, j].Name = ("btn" & i.ToString & j.ToString);
                     btnArray[i, j].Size = new Size(35, 35);
                     btnArray[i, j].Location = new Point((10 + (j * 35)), (10 + (i * 35)));
                     btnArray[i, j].Tag = (i + ("," + j));
@@ -57,9 +59,9 @@ namespace minesweeperCSharp
 
                 mineArray[rowIdx, colIdx] = true;
                 int mineIdx = 0;
-                for (int i = 0; (i <= (rowNum - 1)); i++)
+                for (int i = 0; i < rowNum ; i++)
                 {
-                    for (int j = 0; (j <= (columNum - 1)); j++)
+                    for (int j = 0; j <columNum; j++)
                     {
                         if ((mineArray[i, j] == true))
                         {
@@ -94,8 +96,7 @@ namespace minesweeperCSharp
 
         public int genRandom(int min, int max)
         {
-            Random generator = new System.Random(System.DateTime.Now.Millisecond);
-            return generator.Next(min, max);
+            return this.generator.Next(min, max);
         }
 
 
@@ -108,10 +109,12 @@ namespace minesweeperCSharp
             this.btnArray[row, colum].Text = "M";
             btnArray[row, colum].Enabled = false;
             MessageBox.Show("BoooooooooooM");
+              
+            
         }
         else
         {
-            for (int i = 0; (i <= 7); i++)
+            for (int i = 0;i < xDirection.Length; i++)
             {
                 if (this.findMine((row + xDirection[i]), (colum + yDirection[i])))
                 {
