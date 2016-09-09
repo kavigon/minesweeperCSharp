@@ -28,11 +28,15 @@ namespace minesweeperCSharp
 
         private Button[,] btnArray = new Button[rowNum, columNum];
         private bool[,] mineArray = new bool[rowNum, columNum];
+        private  List<string> gachaList = new List<string>();
 
         private Random generator = new System.Random(System.DateTime.Now.Millisecond);
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+            mineArray.Initialize();            
+
             // make 10*10 
             panelButton.Size = this.ClientSize;
             for (int i = 0; i < rowNum ; i++)
@@ -42,26 +46,41 @@ namespace minesweeperCSharp
                     btnArray[i, j] = new Button();
                     btnArray[i, j].Size = new Size(35, 35);
                     btnArray[i, j].Location = new Point((10 + (j * 35)), (10 + (i * 35)));
-                    btnArray[i, j].Tag = (i + ("," + j));
+                    btnArray[i, j].Tag = i + "," + j;
                     panelButton.Controls.Add(btnArray[i, j]);
                     btnArray[i, j].Click += new System.EventHandler(this.btnArray_Click);
+
+                    gachaList.Add(i + "," + j);
                 }
             }
 
             // set mine
-            mineArray.Initialize();
+            for (int i = 0; i < mineNum; i++)
+            {
+                int pickNum = this.genRandom(0, gachaList.Count);
+                string idxInfo = gachaList[pickNum];
+
+                int row = int.Parse(idxInfo.Split(',')[0]);
+                int colum = int.Parse(idxInfo.Split(',')[1]);
+
+                mineArray[row, colum] = true;
+
+                gachaList.RemoveAt(pickNum);
+            }
+
+            /*
             int idx = 0;
 
             while (idx < 100)
             {
-                int rowIdx = this.genRandom(0, (rowNum - 1));
+                int rowIdx = this.genRandom(0, rowNum - 1);
                 int colIdx = this.genRandom(0, (columNum - 1));
 
                 mineArray[rowIdx, colIdx] = true;
                 int mineIdx = 0;
-                for (int i = 0; i < rowNum ; i++)
+                for (int i = 0; i < rowNum; i++)
                 {
-                    for (int j = 0; j <columNum; j++)
+                    for (int j = 0; j < columNum; j++)
                     {
                         if ((mineArray[i, j] == true))
                         {
@@ -79,10 +98,11 @@ namespace minesweeperCSharp
                     break;
                 }
             }
+            */
         }
 
         // event handler when push the btn
-        public void btnArray_Click(object sender, System.EventArgs e)
+        private void btnArray_Click(object sender, System.EventArgs e)
         {
             Button clickBtn;
             int row;
@@ -94,7 +114,7 @@ namespace minesweeperCSharp
             this.displayMine(row, colum);
         }
 
-        public int genRandom(int min, int max)
+        private int genRandom(int min, int max)
         {
             return this.generator.Next(min, max);
         }
@@ -153,6 +173,3 @@ namespace minesweeperCSharp
 
 }
 }
-
-
-
